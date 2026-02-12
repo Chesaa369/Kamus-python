@@ -1,0 +1,27 @@
+import discord
+from discord.ext import commands
+import requests
+
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='$', intents=intents)
+@bot.event
+async def on_ready():
+    print(f'You have logged in as {bot.user}')
+@bot.command()
+async def mem(ctx):
+    with open('images/meme1.jpg', 'rb') as f:
+        # Mari simpan file perpustakaan/library Discord yang dikonversi dalam variabel ini!
+        picture = discord.File(f)
+   # Kita kemudian dapat mengirim file ini sebagai tolok ukur!
+    await ctx.send(file=picture)
+
+#Tambahan (hw)
+@bot.command()
+async def food(ctx):
+    with open('images/food1.jpeg', 'rb') as f:
+        # Mari simpan file perpustakaan/library Discord yang dikonversi dalam variabel ini!
+        picture = discord.File(f)
+   # Kita kemudian dapat mengirim file ini sebagai tolok ukur!
+    await ctx.send(file=picture)
+bot.run("MTQ2ODc2NDcwNzQ2MzYzMTA2Mg.GdxKMK.Xovbq6Aow1RPR1RK8oxxrZdMEFGp3iZKWkrpjM")
